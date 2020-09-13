@@ -9,14 +9,16 @@ function component() {
     "priority": "3"
   });
 
-  console.log(item.getTitle());
-  console.log(item.getDescription());
-  console.log(item.getPriority());
-
-  element.innerHTML = _.join(['Hello', 'Nova'], ' ');
+  element.innerHTML = `
+    <h4 class="item-title">${item.getTitle()}</h4>
+    <p class="item-priority">${item.getPriority()}</p>
+    <p class="item-description">${item.getDescription()}</p>
+  `;
 
   return element;
 }
+
+
 
 
 document.body.appendChild(component());
