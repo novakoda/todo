@@ -1,4 +1,4 @@
-const todoItem = (data) => {
+const todoTask = (data) => {
   let title = data.title;
   let description = data.description;
   let priority = data.priority;
@@ -18,4 +18,4 @@ const todoItem = (data) => {
   }
 }
 
-export {todoItem};
+export {todoTask};
