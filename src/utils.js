@@ -3,8 +3,12 @@ import {todoTask} from './todoTask.js'
 
 const tasksDiv = document.getElementById('tasks');
 
-function listTasks(tasks) {
-  tasks.forEach((item, i) => {
+function listTasks(list) {
+  const listTitle = document.createElement('h2');
+  listTitle.innerHTML = list.title;
+  tasksDiv.appendChild(listTitle);
+
+  list.getTasks().forEach((item, i) => {
     const itemDiv = document.createElement('div');
     itemDiv.innerHTML = `
       <h4 class="task-title">${item.getTitle()}</h4>

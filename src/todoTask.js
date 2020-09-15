@@ -16,6 +16,23 @@ const todoTask = (data) => {
   return {
     getTitle, getDescription, getPriority, editTitle, editDescription, editPriority, toggleFinished, isFinished
   }
-}
+};
 
-export {todoTask};
+const todoList = (data) => {
+  let title = data.title;
+  let tasks = data.tasks;
+
+  const getTitle = () => {return title};
+  const getTasks = () => {return tasks};
+  const editTitle = (newTitle) => {return title};
+  const addTask = (task) => {tasks.push(task)};
+  const removeTask = (task) => {
+    let index = tasks.indexOf(task);
+    tasks.splice(index, 1);
+  };
+  return {
+    title, tasks, getTitle, getTasks, editTitle, addTask, removeTask
+  }
+};
+
+export {todoTask, todoList};

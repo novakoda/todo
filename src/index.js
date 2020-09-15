@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import {todoTask} from './todoTask.js'
+import {todoTask, todoList} from './todoTask.js'
 import {tasksDiv, listTasks, clearTasks, addTask} from './utils.js'
 
 let taskItems = [];
@@ -22,17 +22,23 @@ let item3 = todoTask({
   "priority": "3"
 });
 
-taskItems.push(item1,item2,item3)
+taskItems.push(item1,item2,item3);
+console.log(taskItems.indexOf(item2));
 
 
-listTasks(taskItems);
+let taskList = todoList({
+  "title": "my list",
+  "tasks": taskItems
+});
+
+
+console.log(taskList.title);
+
+listTasks(taskList);
 
 document.getElementById('newTaskBtn').addEventListener('click', function() {
     // show new task menu
 });
-
-
-
 
 
 document.getElementById('addTaskBtn').addEventListener('click', function() {
