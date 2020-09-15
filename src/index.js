@@ -35,12 +35,13 @@ function addTask() {
   });
 
   taskItems.push(task);
-  list();
+  clearTasks();
+  listTasks();
 };
 
-function list() {
-  const tasksDiv = document.getElementById('tasks');
+const tasksDiv = document.getElementById('tasks');
 
+function listTasks() {
   taskItems.forEach((item, i) => {
     const itemDiv = document.createElement('div');
     itemDiv.innerHTML = `
@@ -52,7 +53,11 @@ function list() {
   });
 };
 
-list();
+function clearTasks() {
+  tasksDiv.innerHTML = "";
+};
+
+listTasks();
 
 document.getElementById('newTaskBtn').addEventListener('click', function() {
     // show new task menu
