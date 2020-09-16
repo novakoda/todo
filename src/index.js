@@ -1,6 +1,7 @@
 import _ from 'lodash';
-import {todoTask, todoList} from './todoTask.js'
-import {tasksDiv, listTasks, clearTasks, addTask} from './utils.js'
+import {todoTask, todoList} from './todoTask.js';
+import {tasksDiv, listTasks, clearTasks, addTask} from './utils.js';
+import './index.css';
 
 let taskItems = [];
 

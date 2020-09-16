@@ -1,0 +1,8 @@
+body {
+  background-color: red !important;
+  background: linear-gradient(0deg, rgba(255,229,214,1) 0%, rgba(255,237,212,1) 50%, rgba(255,247,217,1) 100%) !important;
+}
+
+#newTaskForm {
+  display: none;
+}
