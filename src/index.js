@@ -44,7 +44,11 @@ currentList = list1;
 listTasks(currentList);
 
 document.getElementById('newTaskBtn').addEventListener('click', function() {
-    document.getElementById('newTaskForm').style.display = "block";
+  document.getElementById('newTaskForm').style.display = "block";
+});
+
+document.getElementById('formCloseBtn').addEventListener('click', function() {
+  document.getElementById('newTaskForm').style.display = "none";
 });
 
 
