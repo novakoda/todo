@@ -1,44 +1,50 @@
 import _ from 'lodash';
-import {todoTask, todoList} from './todoTask.js';
+import {todoTask, todoList} from './todo.js';
 import {tasksDiv, listTasks, clearTasks, addTask} from './utils.js';
 import './index.css';
 
-let taskItems = [];
+let todoTasks = [];
+let todoLists = [];
+let currentList;
 
 let item1 = todoTask({
   "title": "I'm 1st",
   "description": "it need to be done asap",
+  "date": "2020-09-22",
   "priority": "1"
 });
 
 let item2 = todoTask({
   "title": "I'm 2nd",
   "description": "it need to be done soon",
+  "date": "2020-09-17",
   "priority": "2"
 });
 
 let item3 = todoTask({
   "title": "I'm 3rd",
   "description": "it just needs to be done",
+  "date": "2020-09-29",
   "priority": "3"
 });
 
-taskItems.push(item1,item2,item3);
-console.log(taskItems.indexOf(item2));
+todoTasks.push(item1,item2,item3);
+console.log(todoTasks.indexOf(item2));
 
-
-let taskList = todoList({
+let list1 = todoList({
   "title": "my list",
-  "tasks": taskItems
+  "tasks": todoTasks
 });
 
+todoLists.push(list1);
 
-console.log(taskList.title);
+console.log(list1.tasks);
+currentList = list1;
 
-listTasks(taskList);
+listTasks(currentList);
 
 document.getElementById('newTaskBtn').addEventListener('click', function() {
-    // show new task menu
+    document.getElementById('newTaskForm').style.display = "block";
 });
 
 
@@ -47,4 +53,4 @@ document.getElementById('addTaskBtn').addEventListener('click', function() {
 });
 
 
-export {taskItems}
+export {todoTasks, currentList, todoLists}

@@ -1,5 +1,5 @@
-import {taskItems} from './index.js'
-import {todoTask} from './todoTask.js'
+import {todoTasks, todoLists, currentList} from './index.js'
+import {todoTask} from './todo.js'
 
 const tasksDiv = document.getElementById('tasks');
 
@@ -14,6 +14,7 @@ function listTasks(list) {
       <h4 class="task-title">${item.getTitle()}</h4>
       <p class="task-priority">${item.getPriority()}</p>
       <p class="task-description">${item.getDescription()}</p>
+      <p class="task-date">${item.getDate()}</p>
       <button type="button" id="taskDelete${i}" class="task-delete-btn">X</button>
     `;
     tasksDiv.appendChild(itemDiv);
@@ -29,16 +30,18 @@ function addTask() {
   let title = document.getElementById('addTaskName').value;
   let description = document.getElementById('addTaskDescription').value;
   let priority = document.getElementById('addTaskPriority').value;
+  let date = document.getElementById('addTaskDate').value;
 
   let task = todoTask({
     "title": title,
     "description": description,
+    "date": date,
     "priority": priority
   });
 
-  taskItems.push(task);
+  currentList.tasks.push(task);
   clearTasks();
-  listTasks(taskItems);
+  listTasks(currentList);
 };
 
 
@@ -48,9 +51,9 @@ function deleteButtons() {
   for (var i = 0; i < deleteBtns.length; i++) {
     let j = i;
     deleteBtns[i].addEventListener('click', function() {
-      taskItems.splice(j, 1);
+      currentList.tasks.splice(j, 1);
       clearTasks();
-      listTasks(taskItems);
+      listTasks(currentList);
     });
   };
 }
