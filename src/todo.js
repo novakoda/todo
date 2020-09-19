@@ -3,7 +3,7 @@ const todoTask = (data) => {
   let description = data.description;
   let date = data.date;
   let priority = data.priority;
-  let finished = false;
+  let finished = data.finished !== null ? data.finished : false;
 
   const getTitle = () => {return title};
   const getDescription = () => {return description};

@@ -11,7 +11,8 @@ let item1 = todoTask({
   "title": "I'm 1st",
   "description": "it need to be done asap",
   "date": "2020-09-22",
-  "priority": "1"
+  "priority": "1",
+  "finished": "true"
 });
 
 let item2 = todoTask({

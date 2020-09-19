@@ -16,16 +16,30 @@ function listTasks(list) {
   list.getTasks().forEach((item, i) => {
     const itemDiv = document.createElement('div');
     itemDiv.className = "task-item"
-    itemDiv.innerHTML = `
-      <div class="form-check">
-        <label class="form-check-label">
-          <input class="form-check-input task-checkbox" type="checkbox" value="" id="list${listIndex}-task${i}">
-          <a class="task-name" id="list${listIndex}-task${i}-name" href="#">${item.getTitle()}</a>
-        </label>
-      </div>
+    if (item.isFinished()) {
+      itemDiv.innerHTML = `
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input task-checkbox" type="checkbox" value="" id="list${listIndex}-task${i}" checked>
+            <a class="task-name done" id="list${listIndex}-task${i}-name" href="#">${item.getTitle()}</a>
+          </label>
+        </div>
 
-      <button type="button" id="list${listIndex}-task${i}-del" class="task-delete-btn hidden">X</button>
-    `;
+        <button type="button" id="list${listIndex}-task${i}-del" class="task-delete-btn">X</button>
+      `;
+    } else {
+      itemDiv.innerHTML = `
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input task-checkbox" type="checkbox" value="" id="list${listIndex}-task${i}">
+            <a class="task-name" id="list${listIndex}-task${i}-name" href="#">${item.getTitle()}</a>
+          </label>
+        </div>
+
+        <button type="button" id="list${listIndex}-task${i}-del" class="task-delete-btn hidden">X</button>
+      `;
+    }
+
     listContainer.appendChild(itemDiv);
   });
   todoContainer.appendChild(listContainer);
@@ -59,17 +73,20 @@ function checkBoxes() {
   let boxes = Array.from(document.getElementsByClassName('task-checkbox'));
 
   boxes.forEach(function(box) {
-    let coords = box.id.replace(/\D/g,'');
     box.addEventListener('click', function() {
-      let checkList = todoLists[coords[0]];
-      let checkTask = checkList.tasks[coords[1]];
+      let coords = box.id.replace(/\D/g,'')
+      let checkTask = todoLists[coords[0]].tasks[coords[1]];
       checkTask.toggleFinished();
-      let checkName = document.getElementById(box.id + '-name');
-      checkName.classList.toggle('done');
-      let checkDel = document.getElementById(box.id + '-del');
-      checkDel.classList.toggle('hidden');
+      toggleViews(box);
     });
   });
+};
+
+function toggleViews(box) {
+  let checkName = document.getElementById(box.id + '-name');
+  checkName.classList.toggle('done');
+  let checkDel = document.getElementById(box.id + '-del');
+  checkDel.classList.toggle('hidden');
 };
 
 function deleteButtons() {
@@ -78,7 +95,9 @@ function deleteButtons() {
   for (var i = 0; i < deleteBtns.length; i++) {
     let j = i;
     deleteBtns[i].addEventListener('click', function() {
+      console.log(currentList);
       currentList.tasks.splice(j, 1);
+      console.log(currentList);
       clearTasks();
       listTasks(currentList);
     });
