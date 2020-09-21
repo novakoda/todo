@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import {todoTask, todoList} from './todo.js';
-import {tasksDiv, listTasks, clearTasks, listLists, addTask} from './utils.js';
+import {tasksDiv, listTasks, clearTasks, listLists, addTask, addList} from './utils.js';
 import './index.css';
 
 let todoTasks = [];
@@ -118,6 +118,14 @@ document.getElementById('formCloseBtn').addEventListener('click', function() {
 
 document.getElementById('addTaskBtn').addEventListener('click', function() {
   addTask();
+  newTaskForm.style.display = "none";
+  formsArea.style.display = "none";
+});
+
+document.getElementById('addListBtn').addEventListener('click', function() {
+  addList();
+  newListForm.style.display = "none";
+  formsArea.style.display = "none";
 });
 
 

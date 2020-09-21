@@ -1,5 +1,5 @@
 import {todoTasks, todoLists, currentList} from './index.js'
-import {todoTask} from './todo.js'
+import {todoTask, todoList} from './todo.js'
 
 const todoContainer = document.getElementById('todoContainer');
 
@@ -50,6 +50,7 @@ function clearTasks() {
 };
 
 function listLists() {
+  clearTasks();
   todoLists.forEach((list, i) => {
     listTasks(list);
   });
@@ -71,9 +72,21 @@ function addTask() {
   });
 
   currentList.tasks.push(task);
-  clearTasks();
-  listTasks(currentList);
+  listLists();
 };
+
+function addList() {
+  let title = document.getElementById('addListName').value;
+  let description = document.getElementById('addListDescription').value;
+
+  let list = todoList({
+    "title": title,
+    "tasks": []
+  });
+
+  todoLists.push(list);
+  listLists();
+}
 
 function checkBoxes() {
   let boxes = Array.from(document.getElementsByClassName('task-checkbox'));
@@ -101,10 +114,9 @@ function deleteButtons() {
     btn.addEventListener('click', function() {
       let coords = btn.id.replace(/\D/g,'');
       todoLists[coords[0]].tasks.splice(coords[1], 1);
-      clearTasks();
       listLists();
     });
   });
 };
 
-export {todoContainer, listTasks, clearTasks, addTask, listLists, deleteButtons}
+export {todoContainer, listTasks, clearTasks, addTask, addList, listLists, deleteButtons}
