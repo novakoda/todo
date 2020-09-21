@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import {todoTask, todoList} from './todo.js';
-import {tasksDiv, listTasks, clearTasks, addTask} from './utils.js';
+import {tasksDiv, listTasks, clearTasks, listLists, addTask} from './utils.js';
 import './index.css';
 
 let todoTasks = [];
@@ -60,16 +60,39 @@ let list2 = todoList({
       "priority": "3"
     })
   ]
-})
+});
 
-todoLists.push(list1,list2);
+let list3 = todoList({
+  "title": "da list",
+  "tasks": [
+    todoTask({
+      "title": "aaaaa",
+      "description": "fsdsdfsgf",
+      "date": "2020-09-19",
+      "priority": "1"
+    }),
+    todoTask({
+      "title": "dsfdgsdfg2",
+      "description": "ILsdfgsdfgdfM",
+      "date": "2020-09-19",
+      "priority": "2",
+      "finished": "true"
+    }),
+    todoTask({
+      "title": "masdfgsdfggdes",
+      "description": "yosdgdfsgsdfggsfgfsgdfgdsgdfgsdfy",
+      "date": "2020-09-19",
+      "priority": "3"
+    })
+  ]
+});
+
+todoLists.push(list1,list2,list3);
 
 console.log(list1.tasks);
 currentList = list1;
 
-todoLists.forEach((list, i) => {
-  listTasks(list);
-});
+listLists();
 
 //listTasks(currentList);
 

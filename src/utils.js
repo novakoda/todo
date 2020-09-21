@@ -43,12 +43,18 @@ function listTasks(list) {
     listContainer.appendChild(itemDiv);
   });
   todoContainer.appendChild(listContainer);
-  checkBoxes();
-  deleteButtons();
 };
 
 function clearTasks() {
   todoContainer.innerHTML = "";
+};
+
+function listLists() {
+  todoLists.forEach((list, i) => {
+    listTasks(list);
+  });
+  checkBoxes();
+  deleteButtons();
 };
 
 function addTask() {
@@ -96,11 +102,9 @@ function deleteButtons() {
       let coords = btn.id.replace(/\D/g,'');
       todoLists[coords[0]].tasks.splice(coords[1], 1);
       clearTasks();
-      todoLists.forEach((list, i) => {
-        listTasks(list);
-      });
+      listLists();
     });
   });
 };
 
-export {todoContainer, listTasks, clearTasks, addTask, deleteButtons}
+export {todoContainer, listTasks, clearTasks, addTask, listLists, deleteButtons}
