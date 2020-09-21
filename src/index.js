@@ -37,12 +37,41 @@ let list1 = todoList({
   "tasks": todoTasks
 });
 
-todoLists.push(list1);
+let list2 = todoList({
+  "title": "yo list",
+  "tasks": [
+    todoTask({
+      "title": "do dis 4 me",
+      "description": "or else",
+      "date": "2020-09-19",
+      "priority": "1"
+    }),
+    todoTask({
+      "title": "do dis 2",
+      "description": "ILY FAM",
+      "date": "2020-09-19",
+      "priority": "2",
+      "finished": "true"
+    }),
+    todoTask({
+      "title": "make 3 wishes",
+      "description": "you really get 33 but dont tell nobody",
+      "date": "2020-09-19",
+      "priority": "3"
+    })
+  ]
+})
+
+todoLists.push(list1,list2);
 
 console.log(list1.tasks);
 currentList = list1;
 
-listTasks(currentList);
+todoLists.forEach((list, i) => {
+  listTasks(list);
+});
+
+//listTasks(currentList);
 
 document.getElementById('newTaskBtn').addEventListener('click', function() {
   document.getElementById('newTaskForm').style.display = "block";

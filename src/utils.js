@@ -71,10 +71,9 @@ function addTask() {
 
 function checkBoxes() {
   let boxes = Array.from(document.getElementsByClassName('task-checkbox'));
-
   boxes.forEach(function(box) {
     box.addEventListener('click', function() {
-      let coords = box.id.replace(/\D/g,'')
+      let coords = box.id.replace(/\D/g,'');
       let checkTask = todoLists[coords[0]].tasks[coords[1]];
       checkTask.toggleFinished();
       toggleViews(box);
@@ -83,6 +82,7 @@ function checkBoxes() {
 };
 
 function toggleViews(box) {
+  console.log(box.id);
   let checkName = document.getElementById(box.id + '-name');
   checkName.classList.toggle('done');
   let checkDel = document.getElementById(box.id + '-del');
@@ -90,18 +90,17 @@ function toggleViews(box) {
 };
 
 function deleteButtons() {
-  let deleteBtns = document.getElementsByClassName('task-delete-btn');
-
-  for (var i = 0; i < deleteBtns.length; i++) {
-    let j = i;
-    deleteBtns[i].addEventListener('click', function() {
-      console.log(currentList);
-      currentList.tasks.splice(j, 1);
-      console.log(currentList);
+  let deleteBtns = Array.from(document.getElementsByClassName('task-delete-btn'));
+  deleteBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      let coords = btn.id.replace(/\D/g,'');
+      todoLists[coords[0]].tasks.splice(coords[1], 1);
       clearTasks();
-      listTasks(currentList);
+      todoLists.forEach((list, i) => {
+        listTasks(list);
+      });
     });
-  };
+  });
 };
 
 export {todoContainer, listTasks, clearTasks, addTask, deleteButtons}
