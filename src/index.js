@@ -95,13 +95,24 @@ currentList = list1;
 listLists();
 
 //listTasks(currentList);
+const formsArea = document.getElementById('formsArea');
+const newTaskForm = document.getElementById('newTaskForm');
+const newListForm = document.getElementById('newListForm');
 
 document.getElementById('newTaskBtn').addEventListener('click', function() {
-  document.getElementById('newTaskForm').style.display = "block";
+  newTaskForm.style.display = "block";
+  formsArea.style.display = "block";
+});
+
+document.getElementById('newListBtn').addEventListener('click', function() {
+  newListForm.style.display = "block";
+  formsArea.style.display = "block";
 });
 
 document.getElementById('formCloseBtn').addEventListener('click', function() {
-  document.getElementById('newTaskForm').style.display = "none";
+  newTaskForm.style.display = "none";
+  newListForm.style.display = "none";
+  formsArea.style.display = "none";
 });
 
 

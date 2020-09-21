@@ -3,16 +3,30 @@ body {
   background: linear-gradient(0deg, rgba(255,229,214,1) 0%, rgba(255,237,212,1) 50%, rgba(255,247,217,1) 100%) !important;
 }
 
-#newTaskForm {
+#formsArea {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.5);
+
+}
+
+#newForm {
   position: absolute;
   left: 40%;
+  top: 30px;
   min-width: 300px;
   max-height: 500px;
   padding: 15px;
   margin: auto;
   border: 2px double #ccc;
-  display: none;
   background-color: white;
+}
+
+#newTaskForm {
+  display: none;
 }
 
 #formCloseBtn {
