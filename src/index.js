@@ -47,5 +47,12 @@ document.getElementById('addListBtn').addEventListener('click', function() {
   formsArea.style.display = "none";
 });
 
+for (var i = 0; i < todoLists.length; i++) {
+  let option = document.createElement('option');
+  option.value = i;
+  option.innerHTML = todoLists[i].title;
+  document.getElementById('selectList').appendChild(option);
+};
+
 
 export {todoTasks, currentList, todoLists}

@@ -1,6 +1,7 @@
 import {todoContainer, checkBoxes, deleteButtons, listInputs} from './utils.js';
 import {listTasks} from './taskFncs.js';
 import {todoLists} from './index.js';
+import {todoList} from './todo.js';
 
 function clearList() {
   todoContainer.innerHTML = "";

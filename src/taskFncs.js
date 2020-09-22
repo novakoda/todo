@@ -57,6 +57,7 @@ function addTask() {
   let description = document.getElementById('addTaskDescription').value;
   let priority = document.getElementById('addTaskPriority').value;
   let date = document.getElementById('addTaskDate').value;
+  let listIndex = document.getElementById('selectList').value;
 
   let task = todoTask({
     "title": title,
@@ -64,7 +65,7 @@ function addTask() {
     "date": date,
     "priority": priority
   });
-  currentList.tasks.push(task);
+  todoLists[listIndex].tasks.push(task);
   listLists();
 };
 
