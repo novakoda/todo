@@ -45,7 +45,7 @@ function listTasks(list) {
   let taskForm = document.createElement('form');
   taskForm.className = "taskInputForm";
   taskForm.innerHTML = `
-    <input class="form-control" type="text" placeholder="Add a new task" value="" class="taskInput" id="addTaskInput${listIndex}">
+    <input class="form-control taskInputText" type="text" placeholder="Add a new task" value="" class="taskInput" id="addTaskInput${listIndex}">
     <button type="button" class="taskInputBtn" id="addTaskBtn${listIndex}">Add</button>
     `;
   listContainer.appendChild(taskForm);

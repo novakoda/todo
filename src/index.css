@@ -10,7 +10,6 @@ body {
   height: 100vh;
   display: none;
   background-color: rgba(0, 0, 0, 0.5);
-
 }
 
 #newForm {
@@ -26,6 +25,10 @@ body {
 }
 
 #newTaskForm {
+  display: none;
+}
+
+#newListForm {
   display: none;
 }
 
@@ -83,4 +86,20 @@ body {
 
 .hidden {
   display: none;
+}
+
+.taskInputForm {
+  display: flex;
+  border: 1px solid #ced4da;
+  border-radius: 17px;
+}
+
+.taskInputBtn {
+  border-radius: 0 13px 13px 0;
+  background-color: blue;
+  color: white;
+}
+
+.taskInputText {
+  border-radius: 13px 0 0 13px;
 }
