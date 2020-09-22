@@ -1,5 +1,6 @@
 import {todoLists} from './index.js'
 import {listLists} from './listFncs.js';
+import {addTaskFromList} from './taskFncs.js'
 
 const todoContainer = document.getElementById('todoContainer');
 
@@ -34,4 +35,15 @@ function deleteButtons() {
   });
 };
 
-export {todoContainer, checkBoxes, toggleViews, deleteButtons}
+function listInputs() {
+    let addTaskBtns = Array.from(document.getElementsByClassName('taskInputBtn'));
+    console.log(addTaskBtns);
+    addTaskBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        console.log(btn);
+        addTaskFromList(btn);
+      });
+    });
+};
+
+export {todoContainer, checkBoxes, toggleViews, deleteButtons, listInputs}

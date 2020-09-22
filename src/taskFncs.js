@@ -1,4 +1,5 @@
 import {todoContainer} from './utils.js';
+import {todoTask} from './todo.js';
 import {clearList, listLists, addList} from './listFncs.js';
 import {todoLists} from './index.js';
 
@@ -44,8 +45,8 @@ function listTasks(list) {
   let taskForm = document.createElement('form');
   taskForm.className = "taskInputForm";
   taskForm.innerHTML = `
-    <input class="form-control" type="text" placeholder="Add a new task" value="" class="taskInput" id="addTask${listIndex}">
-    <button type="button" class="taskInputBtn" id="addTask${listIndex}">Add</button>
+    <input class="form-control" type="text" placeholder="Add a new task" value="" class="taskInput" id="addTaskInput${listIndex}">
+    <button type="button" class="taskInputBtn" id="addTaskBtn${listIndex}">Add</button>
     `;
   listContainer.appendChild(taskForm);
   todoContainer.appendChild(listContainer);
@@ -67,4 +68,14 @@ function addTask() {
   listLists();
 };
 
-export {listTasks, addTask}
+function addTaskFromList(btn) {
+  let listIndex = btn.id.replace(/\D/g,'');
+  let title = document.getElementById('addTaskInput' + listIndex).value;
+  let task = todoTask({
+    "title": title
+  });
+  todoLists[listIndex].tasks.push(task);
+  listLists();
+};
+
+export {listTasks, addTask, addTaskFromList}

@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import {todoTask, todoList} from './todo.js';
-import {tasksDiv, clearList, addList} from './utils.js';
-import {listLists} from './listFncs.js';
+import {tasksDiv, clearList} from './utils.js';
+import {listLists, addList} from './listFncs.js';
 import {listTasks, addTask} from './taskFncs.js';
 import {exampleLists} from './example.js';
 import './index.css';
@@ -11,9 +11,6 @@ let todoLists = [];
 let currentList;
 
 exampleLists();
-
-
-
 listLists();
 
 //listTasks(currentList);
