@@ -25,7 +25,7 @@ function listTasks(list) {
           </label>
         </div>
 
-        <button type="button" id="list${listIndex}-task${i}-del" class="task-delete-btn">X</button>
+        <button type="button" id="list${listIndex}-task${i}-del" class="task-delete-btn"><i class="far fa-times-circle task-delete-icon"></i></button>
       `;
     } else {
       itemDiv.innerHTML = `
@@ -36,7 +36,7 @@ function listTasks(list) {
           </label>
         </div>
 
-        <button type="button" id="list${listIndex}-task${i}-del" class="task-delete-btn hidden">X</button>
+        <button type="button" id="list${listIndex}-task${i}-del" class="task-delete-btn hidden"><i class="far fa-times-circle task-delete-icon"></i></button>
       `;
     }
 
@@ -45,8 +45,8 @@ function listTasks(list) {
   let taskForm = document.createElement('form');
   taskForm.className = "taskInputForm";
   taskForm.innerHTML = `
-    <input class="form-control taskInputText" type="text" placeholder="Add a new task" value="" class="taskInput" id="addTaskInput${listIndex}">
-    <button type="button" class="taskInputBtn" id="addTaskBtn${listIndex}">Add</button>
+    <input class="form-control form-control-sm taskInputText" type="text" placeholder="Add a new task" value="" class="taskInput" id="addTaskInput${listIndex}">
+    <button type="button" class="taskInputBtn" id="addTaskBtn${listIndex}"><i class="fas fa-arrow-alt-circle-up addTaskIcon"></i></button>
     `;
   listContainer.appendChild(taskForm);
   todoContainer.appendChild(listContainer);
