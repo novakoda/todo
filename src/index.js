@@ -4,7 +4,7 @@ import {tasksDiv, clearList} from './utils.js';
 import {listLists, addList} from './listFncs.js';
 import {listTasks, addTask} from './taskFncs.js';
 import {exampleLists} from './example.js';
-import {clearTaskForm, clearListForm} from './formFncs.js';
+import {clearTaskForm, clearListForm, addListsToForm} from './formFncs.js';
 import './index.css';
 
 let todoTasks = [];
@@ -27,6 +27,7 @@ function closeForm() {
 
 document.getElementById('newTaskBtn').addEventListener('click', function() {
   clearTaskForm();
+  addListsToForm();
   newTaskForm.style.display = "block";
   formsArea.style.display = "block";
 });
@@ -51,13 +52,6 @@ document.getElementById('addListBtn').addEventListener('click', function() {
   addList();
   closeForm();
 });
-
-for (var i = 0; i < todoLists.length; i++) {
-  let option = document.createElement('option');
-  option.value = i;
-  option.innerHTML = todoLists[i].title;
-  document.getElementById('selectList').appendChild(option);
-};
 
 
 export {todoTasks, currentList, todoLists}
