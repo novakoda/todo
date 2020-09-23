@@ -32,6 +32,18 @@ body {
   display: none;
 }
 
+#addTaskBtn {
+  display: none;
+}
+
+#editTaskBtn {
+  display: none;
+}
+
+#delTaskBtn {
+  display: none;
+}
+
 #formCloseBtn {
   position: absolute;
   width: 25px;
