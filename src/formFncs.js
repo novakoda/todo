@@ -110,8 +110,9 @@ function editTask(task) {
   task.editDate(addTaskDate.value);
 
 
-  if (selectedList == coords[0]) {
-
+  if (selectedList !== todoLists[coords[0]]) {
+    todoLists[coords[0]].removeTask(task);
+    selectedList.addTask(task);
   };
 
   listLists();
