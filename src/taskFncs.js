@@ -15,7 +15,8 @@ function listTasks(list) {
 
   list.getTasks().forEach((item, i) => {
     const itemDiv = document.createElement('div');
-    itemDiv.className = "task-item"
+    itemDiv.className = "task-item";
+    item.editCoords([listIndex, i]);
     if (item.isFinished()) {
       itemDiv.innerHTML = `
         <div class="form-check">

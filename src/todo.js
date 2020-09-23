@@ -4,21 +4,24 @@ const todoTask = (data) => {
   let date = data.date;
   let priority = data.priority;
   let finished = data.finished !== null ? data.finished : false;
+  let coords = [];
 
   const getTitle = () => {return title};
   const getDescription = () => {return description};
   const getPriority = () => {return priority};
   const getDate = () => {return date};
+  const getCoords = () => {return coords};
   const editTitle = (newTitle) => {title = newTitle};
   const editDescription = (newDescription) => {description = newDescription};
   const editPriority = (newPriority) => {priority = newPriority};
-  const editDate = (newDate) => {date = newDate}
+  const editDate = (newDate) => {date = newDate};
+  const editCoords = (newCoords) => {coords = newCoords};
   const toggleFinished = () => {finished = !finished};
   const isFinished = () => finished;
 
   return {
-    getTitle, getDescription, getPriority, getDate,
-    editTitle, editDescription, editPriority, editDate,
+    getTitle, getDescription, getPriority, getDate, getCoords,
+    editTitle, editDescription, editPriority, editDate, editCoords,
     toggleFinished, isFinished
   }
 };

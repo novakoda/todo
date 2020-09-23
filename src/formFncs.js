@@ -1,4 +1,5 @@
-import {todoLists} from './index.js';
+import {listLists} from './listFncs.js';
+import {todoLists, editedTask, changeEditedTask} from './index.js';
 
 const formsArea = document.getElementById('formsArea');
 const newTaskForm = document.getElementById('newTaskForm');
@@ -87,17 +88,33 @@ function addListsToForm() {
 
 function editTaskForm(link) {
   let coords = link.id.replace(/\D/g,'');
-  let task = todoLists[coords[0]].tasks[coords[1]];
+  changeEditedTask(todoLists[coords[0]].tasks[coords[1]]);
 
-  addTaskName.value = task.getTitle();
-  addTaskDescription.value = task.getDescription();
-  addTaskPriority.value = task.getPriority();
-  addTaskDate.value = task.getDate();
+  addTaskName.value = editedTask.getTitle();
+  addTaskDescription.value = editedTask.getDescription();
+  addTaskPriority.value = editedTask.getPriority();
+  addTaskDate.value = editedTask.getDate();
   selectList.innerHTML = "";
   addListsToForm();
   selectList.value = coords[0];
   showTaskForm(true);
-}
+};
+
+function editTask(task) {
+  let selectedList = todoLists[selectList.value];
+  let coords = task.getCoords();
+
+  task.editTitle(addTaskName.value);
+  task.editDescription(addTaskDescription.value);
+  task.editPriority(addTaskPriority.value);
+  task.editDate(addTaskDate.value);
 
 
-export {closeForm, clearTaskForm, clearListForm, addListsToForm, editTaskForm, showTaskForm, showListForm}
+  if (selectedList == coords[0]) {
+
+  };
+
+  listLists();
+};
+
+export {editTask, closeForm, clearTaskForm, clearListForm, addListsToForm, editTaskForm, showTaskForm, showListForm}
