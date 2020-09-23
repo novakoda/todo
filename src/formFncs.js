@@ -28,6 +28,9 @@ function closeForm() {
   addTaskBtn.style.display = "none";
   editTaskBtn.style.display = "none";
   delTaskBtn.style.display = "none";
+  addListBtn.style.display = "none";
+  editListBtn.style.display = "none";
+  delListBtn.style.display = "none";
 };
 
 function showTaskForm(edit) {
@@ -45,13 +48,12 @@ function showTaskForm(edit) {
 function showListForm(edit) {
   newListForm.style.display = "block";
   formsArea.style.display = "block";
-  addListBtn.innerHTML = btnText;
 
   if (edit) {
-    editTaskBtn.style.display = "inline-block";
-    delTaskBtn.style.display = "inline-block";
+    editListBtn.style.display = "inline-block";
+    delListBtn.style.display = "inline-block";
   } else {
-    addTaskBtn.style.display = "inline-block";
+    addListBtn.style.display = "inline-block";
   };
 }
 

@@ -44,6 +44,18 @@ body {
   display: none;
 }
 
+#delListBtn {
+  display: none;
+}
+
+#editListBtn {
+  display: none;
+}
+
+#addListBtn {
+  display: none;
+}
+
 #formCloseBtn {
   position: absolute;
   width: 25px;
