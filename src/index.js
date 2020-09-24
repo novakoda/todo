@@ -4,7 +4,7 @@ import {tasksDiv, clearList} from './utils.js';
 import {listLists, addList} from './listFncs.js';
 import {listTasks, addTask} from './taskFncs.js';
 import {exampleLists} from './example.js';
-import {clearTaskForm, closeForm, clearListForm, addListsToForm, showTaskForm, showListForm, editTask} from './formFncs.js';
+import {clearTaskForm, closeForm, clearListForm, addListsToForm, showTaskForm, showListForm, editTask, formTaskDelete} from './formFncs.js';
 import './index.css';
 
 let todoTasks = [];
@@ -37,7 +37,6 @@ document.getElementById('formCloseBtn').addEventListener('click', function() {
   closeForm();
 });
 
-
 document.getElementById('addTaskBtn').addEventListener('click', function() {
   addTask();
   closeForm();
@@ -53,5 +52,9 @@ document.getElementById('editTaskBtn').addEventListener('click', function() {
   closeForm();
 });
 
+document.getElementById('delTaskBtn').addEventListener('click', function() {
+  formTaskDelete(editedTask);
+  closeForm();
+});
 
 export {todoTasks, currentList, todoLists, editedTask, changeEditedTask}

@@ -118,4 +118,10 @@ function editTask(task) {
   listLists();
 };
 
-export {editTask, closeForm, clearTaskForm, clearListForm, addListsToForm, editTaskForm, showTaskForm, showListForm}
+function formTaskDelete(task) {
+  let coords = task.getCoords();
+  todoLists[coords[0]].tasks.splice(coords[1], 1);
+  listLists();
+}
+
+export {editTask, closeForm, clearTaskForm, clearListForm, addListsToForm, editTaskForm, showTaskForm, showListForm, formTaskDelete}
