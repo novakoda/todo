@@ -15,7 +15,6 @@ function exampleLists() {
       todoTask({
         "title": "2nd",
         "description": "IvsfM",
-        "date": "2020-09-19",
         "priority": "2",
         "finished": "true"
       }),
@@ -35,13 +34,13 @@ function exampleLists() {
       todoTask({
         "title": "do dis 4 me",
         "description": "or else",
-        "date": "2020-09-19",
+        "date": "2020-10-19",
         "priority": "1"
       }),
       todoTask({
         "title": "do dis 2",
         "description": "ILY FAM",
-        "date": "2020-09-19",
+        "date": "2020-09-29",
         "priority": "2",
         "finished": "true"
       }),

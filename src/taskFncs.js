@@ -2,6 +2,7 @@ import {todoContainer} from './utils.js';
 import {todoTask} from './todo.js';
 import {clearList, listLists, addList} from './listFncs.js';
 import {todoLists} from './index.js';
+import {formatDistance} from 'date-fns';
 
 function listTasks(list) {
   let listIndex = todoLists.indexOf(list);
@@ -23,6 +24,14 @@ function listTasks(list) {
 
   list.getTasks().forEach((item, i) => {
     const itemDiv = document.createElement('div');
+    let itemDate;
+    if (item.getDate() != undefined) {
+       itemDate = formatDistance(
+        new Date(item.getDate()),
+        Date.now(),
+        {addSuffix: true}
+      )
+    } else {itemDate = ""};
     itemDiv.className = "task-item";
     item.editCoords([listIndex, i]);
     if (item.isFinished()) {
@@ -33,7 +42,7 @@ function listTasks(list) {
             <a class="task-name done" id="list${listIndex}-task${i}-name" href="#">${item.getTitle()}</a>
           </label>
         </div>
-
+        <div class="task-date" id="list${listIndex}-task${i}-date">${itemDate}</div>
         <button type="button" id="list${listIndex}-task${i}-del" class="task-delete-btn"><i class="far fa-times-circle task-delete-icon"></i></button>
       `;
     } else {
@@ -44,7 +53,7 @@ function listTasks(list) {
             <a class="task-name" id="list${listIndex}-task${i}-name" href="#">${item.getTitle()}</a>
           </label>
         </div>
-
+        <div class="task-date" id="list${listIndex}-task${i}-date">${itemDate}</div>
         <button type="button" id="list${listIndex}-task${i}-del" class="task-delete-btn hidden"><i class="far fa-times-circle task-delete-icon"></i></button>
       `;
     }

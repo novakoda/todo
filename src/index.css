@@ -147,3 +147,13 @@ body {
   color: #ddd;
   cursor: pointer;
 }
+
+.task-date {
+  height: 20px;
+  padding: 1px 3px 1px 3px;
+  font-size: 11px;
+  border-radius: 6px;
+  border: solid 1px #666;
+  background-color: rgba(0,0,0,0);
+  color: #666;
+}
