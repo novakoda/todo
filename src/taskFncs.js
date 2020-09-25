@@ -10,8 +10,15 @@ function listTasks(list) {
   const listContainer = document.createElement('div');
   listContainer.className = "listCont";
 
-  const listTitle = document.createElement('h2');
-  listTitle.innerHTML = `<a class="list-name" id="list${listIndex}-name" href="#">${list.getTitle()}</a>`;
+  const listTitle = document.createElement('div');
+  listTitle.className = "listTitleCont";
+  listTitle.innerHTML = `
+  <h2>
+    <a class="list-name" id="list${listIndex}-name" href="#">${list.getTitle()}</a>
+  </h2>
+  <p class="list-description" id="list${listIndex}-desc">${list.getDescription()}</p>
+  `;
+
   listContainer.appendChild(listTitle);
 
   list.getTasks().forEach((item, i) => {

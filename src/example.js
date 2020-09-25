@@ -4,6 +4,7 @@ import {todoLists} from './index.js';
 function exampleLists() {
   let list1 = todoList({
     "title": "my list",
+    "description": "things to do around the house",
     "tasks": [
       todoTask({
         "title": "Im 1st",
@@ -29,6 +30,7 @@ function exampleLists() {
 
   let list2 = todoList({
     "title": "yo list",
+    "description": "things to at your house",
     "tasks": [
       todoTask({
         "title": "do dis 4 me",
@@ -54,6 +56,7 @@ function exampleLists() {
 
   let list3 = todoList({
     "title": "da list",
+    "description": "things to do at yo mama house",
     "tasks": [
       todoTask({
         "title": "aaaaa",
