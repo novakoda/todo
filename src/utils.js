@@ -1,7 +1,7 @@
 import {todoLists} from './index.js';
 import {listLists} from './listFncs.js';
 import {addTaskFromList} from './taskFncs.js';
-import {editTaskForm} from './formFncs.js';
+import {editTaskForm, editListForm} from './formFncs.js';
 
 const todoContainer = document.getElementById('todoContainer');
 
@@ -50,10 +50,23 @@ function taskLinks() {
   console.log(links);
   links.forEach(function(link) {
     link.addEventListener('click', function() {
-      console.log(link);
       editTaskForm(link);
     });
   });
 };
 
-export {todoContainer, checkBoxes, toggleViews, deleteButtons, listInputs, taskLinks}
+function listLinks() {
+  let links = Array.from(document.getElementsByClassName('list-name'));
+  console.log(links);
+  links.forEach(function(link) {
+    link.addEventListener('click', function() {
+      console.log(link);
+      editListForm(link);
+    });
+  });
+};
+
+export {
+  todoContainer, checkBoxes, toggleViews, deleteButtons,
+  listInputs, taskLinks, listLinks
+}

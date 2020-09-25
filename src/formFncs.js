@@ -1,5 +1,5 @@
 import {listLists} from './listFncs.js';
-import {todoLists, editedTask, changeEditedTask} from './index.js';
+import {todoLists, editedTask, editedList, changeEditedTask, changeEditedList} from './index.js';
 
 const formsArea = document.getElementById('formsArea');
 const newTaskForm = document.getElementById('newTaskForm');
@@ -100,6 +100,16 @@ function editTaskForm(link) {
   showTaskForm(true);
 };
 
+function editListForm(link) {
+  let index = link.id.replace(/\D/g,'');
+  changeEditedList(todoLists[index]);
+  console.log(editedList);
+
+  addListName.value = editedList.getTitle();
+  addListDescription.value = editedList.getDescription();
+  showListForm(true);
+};
+
 function editTask(task) {
   let selectedList = todoLists[selectList.value];
   let coords = task.getCoords();
@@ -109,7 +119,6 @@ function editTask(task) {
   task.editPriority(addTaskPriority.value);
   task.editDate(addTaskDate.value);
 
-
   if (selectedList !== todoLists[coords[0]]) {
     todoLists[coords[0]].removeTask(task);
     selectedList.addTask(task);
@@ -118,10 +127,26 @@ function editTask(task) {
   listLists();
 };
 
+function editList(list) {
+  list.editTitle(addListName.value);
+  list.editDescription(addListDescription.value);
+  listLists();
+}
+
 function formTaskDelete(task) {
   let coords = task.getCoords();
   todoLists[coords[0]].tasks.splice(coords[1], 1);
   listLists();
 }
 
-export {editTask, closeForm, clearTaskForm, clearListForm, addListsToForm, editTaskForm, showTaskForm, showListForm, formTaskDelete}
+function formListDelete(list) {
+  let index = list.getIndex();
+  todoLists.splice(index, 1);
+  listLists();
+}
+
+export {
+  editTask, editList, closeForm, clearTaskForm, clearListForm,
+  addListsToForm, editTaskForm, editListForm, showTaskForm,
+  showListForm, formTaskDelete, formListDelete
+}

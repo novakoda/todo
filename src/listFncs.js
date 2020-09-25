@@ -1,4 +1,4 @@
-import {todoContainer, checkBoxes, deleteButtons, listInputs, taskLinks} from './utils.js';
+import {todoContainer, checkBoxes, deleteButtons, listInputs, taskLinks, listLinks} from './utils.js';
 import {listTasks} from './taskFncs.js';
 import {todoLists} from './index.js';
 import {todoList} from './todo.js';
@@ -16,6 +16,7 @@ function listLists() {
   deleteButtons();
   listInputs();
   taskLinks();
+  listLinks();
 };
 
 

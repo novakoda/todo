@@ -28,18 +28,24 @@ const todoTask = (data) => {
 
 const todoList = (data) => {
   let title = data.title;
+  let description = data.description;
   let tasks = data.tasks;
+  let index;
 
   const getTitle = () => {return title};
+  const getDescription = () => {return description};
   const getTasks = () => {return tasks};
-  const editTitle = (newTitle) => {return title};
+  const getIndex = () => {return index};
+  const setIndex = (newIndex) => {index = newIndex};
+  const editTitle = (newTitle) => {title = newTitle};
+  const editDescription = (newDescription) => {description = newDescription};
   const addTask = (task) => {tasks.push(task)};
   const removeTask = (task) => {
     let index = tasks.indexOf(task);
     tasks.splice(index, 1);
   };
   return {
-    title, tasks, getTitle, getTasks, editTitle, addTask, removeTask
+    title, tasks, getTitle, getTasks, getDescription, getIndex, setIndex, editTitle, editDescription, addTask, removeTask
   }
 };
 

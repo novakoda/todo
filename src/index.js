@@ -4,16 +4,24 @@ import {tasksDiv, clearList} from './utils.js';
 import {listLists, addList} from './listFncs.js';
 import {listTasks, addTask} from './taskFncs.js';
 import {exampleLists} from './example.js';
-import {clearTaskForm, closeForm, clearListForm, addListsToForm, showTaskForm, showListForm, editTask, formTaskDelete} from './formFncs.js';
+import {
+  clearTaskForm, closeForm, clearListForm, addListsToForm, showTaskForm,
+  showListForm, editTask, editList, formTaskDelete, formListDelete
+} from './formFncs.js';
 import './index.css';
 
 let todoTasks = [];
 let todoLists = [];
 let currentList;
 let editedTask;
+let editedList;
 
 function changeEditedTask(task) {
   editedTask = task;
+}
+
+function changeEditedList(list) {
+  editedList = list;
 }
 
 exampleLists();
@@ -57,4 +65,14 @@ document.getElementById('delTaskBtn').addEventListener('click', function() {
   closeForm();
 });
 
-export {todoTasks, currentList, todoLists, editedTask, changeEditedTask}
+document.getElementById('editListBtn').addEventListener('click', function() {
+  editList(editedList);
+  closeForm();
+});
+
+document.getElementById('delListBtn').addEventListener('click', function() {
+  formListDelete(editedList);
+  closeForm();
+});
+
+export {todoTasks, currentList, todoLists, editedTask, editedList, changeEditedTask, changeEditedList}

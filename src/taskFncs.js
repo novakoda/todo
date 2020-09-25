@@ -4,14 +4,15 @@ import {clearList, listLists, addList} from './listFncs.js';
 import {todoLists} from './index.js';
 
 function listTasks(list) {
+  let listIndex = todoLists.indexOf(list);
+  list.setIndex(listIndex);
+
   const listContainer = document.createElement('div');
   listContainer.className = "listCont";
 
   const listTitle = document.createElement('h2');
-  listTitle.innerHTML = list.title;
+  listTitle.innerHTML = `<a class="list-name" id="list${listIndex}-name" href="#">${list.getTitle()}</a>`;
   listContainer.appendChild(listTitle);
-
-  let listIndex = todoLists.indexOf(list);
 
   list.getTasks().forEach((item, i) => {
     const itemDiv = document.createElement('div');
