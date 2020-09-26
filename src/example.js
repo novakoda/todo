@@ -15,14 +15,14 @@ function exampleLists() {
       todoTask({
         "title": "2nd",
         "description": "IvsfM",
-        "priority": "2",
-        "finished": "true"
+        "priority": "2"
       }),
       todoTask({
         "title": "im 3rd",
         "description": "xcbsdsdody",
         "date": "2020-09-19",
-        "priority": "3"
+        "priority": "3",
+        "finished": "true"
       })
     ]
   });
@@ -48,7 +48,8 @@ function exampleLists() {
         "title": "make 3 wishes",
         "description": "you really get 33 but dont tell nobody",
         "date": "2020-09-19",
-        "priority": "3"
+        "priority": "3",
+        "finished": "true"
       })
     ]
   });
@@ -67,14 +68,14 @@ function exampleLists() {
         "title": "dsfdgsdfg2",
         "description": "ILsdfgsdfgdfM",
         "date": "2020-09-19",
-        "priority": "2",
-        "finished": "true"
+        "priority": "2"
       }),
       todoTask({
         "title": "masdfgsdfggdes",
         "description": "yosdgdfsgsdfggsfgfsgdfgdsgdfgsdfy",
         "date": "2020-09-19",
-        "priority": "3"
+        "priority": "3",
+        "finished": "true"
       })
     ]
   });

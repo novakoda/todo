@@ -1,7 +1,8 @@
 import {todoLists} from './index.js';
-import {listLists} from './listFncs.js';
+import {listLists, clearList, fillList} from './listFncs.js';
 import {addTaskFromList} from './taskFncs.js';
 import {editTaskForm, editListForm} from './formFncs.js';
+import {listTasks} from './taskFncs.js';
 
 const todoContainer = document.getElementById('todoContainer');
 
@@ -10,9 +11,16 @@ function checkBoxes() {
   boxes.forEach(function(box) {
     box.addEventListener('click', function() {
       let coords = box.id.replace(/\D/g,'');
-      let checkTask = todoLists[coords[0]].tasks[coords[1]];
+      let daList = todoLists[coords[0]];
+      let checkTask = daList.tasks[coords[1]];
       checkTask.toggleFinished();
+      checkTask.isFinished() ? daList.tasks.push(daList.tasks.splice(coords[1], 1)[0]) : daList.addTask(daList.tasks.splice(coords[1], 1)[0]);
       toggleViews(box);
+      let listCont = document.getElementById('listCont-' + coords[0]);
+      clearList(listCont);
+      let tasksContainer = fillList(daList, coords[0]);
+      listCont.innerHTML = tasksContainer.innerHTML;
+      listLists();
     });
   });
 };
@@ -40,7 +48,6 @@ function deleteButtons() {
 
 function listInputs() {
     let addTaskBtns = Array.from(document.getElementsByClassName('taskInputBtn'));
-
     addTaskBtns.forEach(function(btn) {
       btn.addEventListener('click', function() {
         addTaskFromList(btn);
@@ -50,7 +57,6 @@ function listInputs() {
 
 function taskLinks() {
   let links = Array.from(document.getElementsByClassName('task-name'));
-  console.log(links);
   links.forEach(function(link) {
     priorityColors(link);
     link.addEventListener('click', function() {
@@ -61,10 +67,8 @@ function taskLinks() {
 
 function listLinks() {
   let links = Array.from(document.getElementsByClassName('list-name'));
-  console.log(links);
   links.forEach(function(link) {
     link.addEventListener('click', function() {
-      console.log(link);
       editListForm(link);
     });
   });

@@ -67,7 +67,7 @@ function clearTaskForm() {
   selectList.value = 'Select a list to add the task to';
 };
 
-function clearListForm() {
+function clearListsForm() {
   addListName.value = '';
   addListDescription.value = '';
 };
@@ -146,7 +146,7 @@ function formListDelete(list) {
 }
 
 export {
-  editTask, editList, closeForm, clearTaskForm, clearListForm,
+  editTask, editList, closeForm, clearTaskForm, clearListsForm,
   addListsToForm, editTaskForm, editListForm, showTaskForm,
   showListForm, formTaskDelete, formListDelete
 }

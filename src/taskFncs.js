@@ -1,24 +1,12 @@
 import {todoContainer} from './utils.js';
 import {todoTask} from './todo.js';
-import {clearList, listLists, addList} from './listFncs.js';
+import {clearLists, clearList, listLists, addList} from './listFncs.js';
 import {todoLists} from './index.js';
 import {formatDistance} from 'date-fns';
 
-function listTasks(list) {
-  let listIndex = todoLists.indexOf(list);
-  list.setIndex(listIndex);
-
-  const listContainer = document.createElement('div');
-  listContainer.className = "listCont";
-
-  const listTitle = document.createElement('div');
-  listTitle.className = "listTitleCont";
-  listTitle.innerHTML = `
-  <h2><a class="list-name" id="list${listIndex}-name" href="#">${list.getTitle()}</a></h2>
-  <p class="list-description" id="list${listIndex}-desc">${list.getDescription()}</p>
-  `;
-
-  listContainer.appendChild(listTitle);
+function listTasks(list, listIndex) {
+  let tasksContainer = document.createElement('div');
+  tasksContainer.className = "tasks-container";
 
   list.getTasks().forEach((item, i) => {
     const itemDiv = document.createElement('div');
@@ -56,18 +44,10 @@ function listTasks(list) {
         <button type="button" id="list${listIndex}-task${i}-del" class="task-delete-btn hidden"><i class="far fa-times-circle task-delete-icon"></i></button>
       `;
     };
-
-
-    listContainer.appendChild(itemDiv);
+    tasksContainer.appendChild(itemDiv);
   });
-  let taskForm = document.createElement('form');
-  taskForm.className = "taskInputForm";
-  taskForm.innerHTML = `
-    <input class="form-control form-control-sm taskInputText" type="text" placeholder="Add a new task" value="" class="taskInput" id="addTaskInput${listIndex}">
-    <button type="button" class="taskInputBtn" id="addTaskBtn${listIndex}"><i class="fas fa-arrow-alt-circle-up addTaskIcon"></i></button>
-    `;
-  listContainer.appendChild(taskForm);
-  todoContainer.appendChild(listContainer);
+
+  return tasksContainer;
 };
 
 function addTask() {
@@ -83,7 +63,7 @@ function addTask() {
     "date": date,
     "priority": priority
   });
-  todoLists[listIndex].tasks.push(task);
+  todoLists[listIndex].addTask(task);
   listLists();
 };
 
@@ -93,7 +73,7 @@ function addTaskFromList(btn) {
   let task = todoTask({
     "title": title
   });
-  todoLists[listIndex].tasks.push(task);
+  todoLists[listIndex].addTask(task);
   listLists();
 };
 

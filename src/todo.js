@@ -39,7 +39,7 @@ const todoList = (data) => {
   const setIndex = (newIndex) => {index = newIndex};
   const editTitle = (newTitle) => {title = newTitle};
   const editDescription = (newDescription) => {description = newDescription};
-  const addTask = (task) => {tasks.push(task)};
+  const addTask = (task) => {tasks.unshift(task)};
   const removeTask = (task) => {
     let index = tasks.indexOf(task);
     tasks.splice(index, 1);

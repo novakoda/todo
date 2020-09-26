@@ -1,11 +1,11 @@
 import _ from 'lodash';
 import {todoTask, todoList} from './todo.js';
-import {tasksDiv, clearList} from './utils.js';
+import {tasksDiv, clearLists} from './utils.js';
 import {listLists, addList} from './listFncs.js';
 import {listTasks, addTask} from './taskFncs.js';
 import {exampleLists} from './example.js';
 import {
-  clearTaskForm, closeForm, clearListForm, addListsToForm, showTaskForm,
+  clearTaskForm, closeForm, clearListsForm, addListsToForm, showTaskForm,
   showListForm, editTask, editList, formTaskDelete, formListDelete
 } from './formFncs.js';
 import './index.css';
@@ -37,7 +37,7 @@ document.getElementById('newTaskBtn').addEventListener('click', function() {
 });
 
 document.getElementById('newListBtn').addEventListener('click', function() {
-  clearListForm();
+  clearListsForm();
   showListForm();
 });
 
