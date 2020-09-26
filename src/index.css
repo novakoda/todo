@@ -1,6 +1,15 @@
 body {
+  width: 100vw;
+  height: 100vh;
   background-color: red !important;
   background: linear-gradient(0deg, rgba(255,229,214,1) 0%, rgba(255,237,212,1) 50%, rgba(255,247,217,1) 100%) !important;
+}
+
+#container {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 #formsArea {
@@ -76,10 +85,18 @@ body {
   background-color: #c00;
 }
 
+#todoContainer {
+  display: flex;
+  overflow-x: scroll;
+}
+
 .listCont {
-  width: 400px;
+  min-width: 500px;
+  height: 500px;
   padding: 15px;
   margin: 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
   background-color: white;
 }
 
@@ -96,6 +113,10 @@ body {
   display: flex;
   width: 100%;
   justify-content: space-between;
+}
+
+.form-check {
+  flex-grow: 2;
 }
 
 .task-delete-btn {
@@ -156,4 +177,20 @@ body {
   border: solid 1px #666;
   background-color: rgba(0,0,0,0);
   color: #666;
+}
+
+.lvl-1 {
+  border-bottom: 3px solid red;
+}
+
+.lvl-2 {
+  border-bottom: 3px solid orange;
+}
+
+.lvl-3 {
+  border-bottom: 3px solid green;
+}
+
+.lvl-4 {
+  border-bottom: 3px solid blue;
 }

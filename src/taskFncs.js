@@ -14,9 +14,7 @@ function listTasks(list) {
   const listTitle = document.createElement('div');
   listTitle.className = "listTitleCont";
   listTitle.innerHTML = `
-  <h2>
-    <a class="list-name" id="list${listIndex}-name" href="#">${list.getTitle()}</a>
-  </h2>
+  <h2><a class="list-name" id="list${listIndex}-name" href="#">${list.getTitle()}</a></h2>
   <p class="list-description" id="list${listIndex}-desc">${list.getDescription()}</p>
   `;
 
@@ -34,6 +32,7 @@ function listTasks(list) {
     } else {itemDate = ""};
     itemDiv.className = "task-item";
     item.editCoords([listIndex, i]);
+
     if (item.isFinished()) {
       itemDiv.innerHTML = `
         <div class="form-check">
@@ -42,7 +41,7 @@ function listTasks(list) {
             <a class="task-name done" id="list${listIndex}-task${i}-name" href="#">${item.getTitle()}</a>
           </label>
         </div>
-        <div class="task-date" id="list${listIndex}-task${i}-date">${itemDate}</div>
+        <div class="task-date hidden" id="list${listIndex}-task${i}-date">${itemDate}</div>
         <button type="button" id="list${listIndex}-task${i}-del" class="task-delete-btn"><i class="far fa-times-circle task-delete-icon"></i></button>
       `;
     } else {
@@ -56,7 +55,8 @@ function listTasks(list) {
         <div class="task-date" id="list${listIndex}-task${i}-date">${itemDate}</div>
         <button type="button" id="list${listIndex}-task${i}-del" class="task-delete-btn hidden"><i class="far fa-times-circle task-delete-icon"></i></button>
       `;
-    }
+    };
+
 
     listContainer.appendChild(itemDiv);
   });
