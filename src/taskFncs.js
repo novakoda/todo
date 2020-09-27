@@ -11,12 +11,13 @@ function listTasks(list, listIndex) {
   list.getTasks().forEach((item, i) => {
     const itemDiv = document.createElement('div');
     let itemDate;
-    if (item.getDate() != undefined) {
+
+    if (item.getDate() != undefined && item.getDate() != "") {
        itemDate = formatDistance(
         new Date(item.getDate()),
         Date.now(),
         {addSuffix: true}
-      )
+      );
     } else {itemDate = ""};
     itemDiv.className = "task-item";
     item.editCoords([listIndex, i]);
@@ -56,6 +57,7 @@ function addTask() {
   let priority = document.getElementById('addTaskPriority').value;
   let date = document.getElementById('addTaskDate').value;
   let listIndex = document.getElementById('selectList').value;
+  console.log(date);
 
   let task = todoTask({
     "title": title,
