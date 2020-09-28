@@ -7,14 +7,15 @@ function exampleLists() {
     "description": "things to do around the house",
     "tasks": [
       todoTask({
-        "title": "Im 1st",
+        "title": "Send e-mails to IT companies",
         "description": "sadgfdsgfe",
         "date": "2020-09-19",
         "priority": "1"
       }),
       todoTask({
-        "title": "2nd",
+        "title": "This is something else that I know that I have to do but I forgot what it is",
         "description": "IvsfM",
+        "date": "2020-08-19",
         "priority": "2"
       }),
       todoTask({

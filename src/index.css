@@ -1,8 +1,20 @@
 body {
   width: 100vw;
   height: 100vh;
-  background-color: red !important;
-  background: linear-gradient(0deg, rgba(255,229,214,1) 0%, rgba(255,237,212,1) 50%, rgba(255,247,217,1) 100%) !important;
+  background: rgb(228,235,255)  !important;
+  background: linear-gradient(0deg, rgba(228,235,255,1) 0%, rgba(226,246,255,1) 100%) !important;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+h1 {
+  margin-left: 10px;
+  font-family: 'Bowlby One SC', Impact, fantasy;
+  text-shadow: 1px 1px 13px #003AFF;
+  color: white;
 }
 
 #container {
@@ -91,6 +103,7 @@ body {
 }
 
 .listCont {
+  position: relative;
   min-width: 500px;
   height: 500px;
   padding: 15px;
@@ -100,8 +113,14 @@ body {
   background-color: white;
 }
 
+.list-name {
+  font-weight: bolder;
+}
+
 .task-name {
   color: black;
+  font-weight: bold;
+  width: 60%;
 }
 
 .done {
@@ -111,6 +130,10 @@ body {
 
 .task-item {
   display: flex;
+  padding: 7px;
+  margin: 10px 0;
+  border: 1px solid #aaa;
+  border-radius: 9px;
   width: 100%;
   justify-content: space-between;
 }
@@ -134,8 +157,16 @@ body {
 }
 
 .taskInputForm {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  width: 100%;
   display: flex;
   margin-top: 5px;
+}
+
+.taskInputText {
+  width: 90% !important;
 }
 
 .taskInputBtn {
@@ -144,7 +175,7 @@ body {
   margin-left: 5px;
   border-radius: 50%;
   background: none;
-  color: blue;
+  color: #007bff;
 }
 
 .addTaskIcon {
@@ -154,6 +185,12 @@ body {
 .addTaskIcon:hover {
   color: #00d;
   cursor: pointer;
+}
+
+.task-desc {
+  color: #777;
+  font-size: 12px;
+  margin: 3px 5px 0 10px;
 }
 
 .task-delete-icon {
@@ -170,13 +207,20 @@ body {
 }
 
 .task-date {
-  height: 20px;
-  padding: 1px 3px 1px 3px;
+  min-height: 20px;
+  max-height: 40px;
+  line-height: 16px;
+  align-self: center;
+  padding: 2px 4px 1px 4px;
+  margin-bottom: 3px;
   font-size: 11px;
   border-radius: 6px;
-  border: solid 1px #666;
-  background-color: rgba(0,0,0,0);
-  color: #666;
+  background-color: rgba(0,0,0,0.4);
+  color: #fff;
+}
+
+.task-date:empty {
+  display: none;
 }
 
 .lvl-1 {
@@ -192,5 +236,65 @@ body {
 }
 
 .lvl-4 {
-  border-bottom: 3px solid blue;
+  border-bottom: 3px solid #007bff;
+}
+
+.cont-lvl-1 {
+  border: 1px solid red;
+}
+
+.cont-lvl-2 {
+  border: 1px solid orange;
+}
+
+.cont-lvl-3 {
+  border: 1px solid green;
+}
+
+.cont-lvl-4 {
+  border: 1px solid #007bff;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+footer {
+  text-align: center;
+}
+
+.legend-item {
+  position: relative;
+}
+
+.legend-color {
+  position: absolute;
+  top: 1px;
+  display: inline-block;
+  border-radius: 5px;
+  height: 20px;
+  width: 20px;
+}
+
+.legend-name {
+  display: inline-block;
+  margin-left: 25px;
+}
+
+#low {
+  background-color: #007bff;
+}
+
+#med {
+  background-color: green;
+}
+
+#high {
+  background-color: orange;
+}
+
+#urgent {
+  background-color: red;
 }

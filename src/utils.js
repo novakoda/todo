@@ -28,7 +28,7 @@ function checkBoxes() {
 function toggleViews(box) {
   let checkName = document.getElementById(box.id + '-name');
   checkName.classList.toggle('done');
-  priorityColors(checkName);
+  priorityColors(box);
   let checkDate = document.getElementById(box.id + '-date');
   checkDate.classList.toggle('hidden');
   let checkDel = document.getElementById(box.id + '-del');
@@ -75,12 +75,15 @@ function listLinks() {
 };
 
 function priorityColors(link) {
+  let cont = document.getElementById(link.id.replace("name","cont"));
+
   let coords = link.id.replace(/\D/g,'');
   let task =todoLists[coords[0]].tasks[coords[1]];
   let lvl = task.getPriority();
   for (var i = 1; i < 5; i++) {
     if (link.classList.contains("lvl-"+i)) {
       link.classList.remove("lvl-"+i);
+      cont.classList.remove("cont-lvl-"+i);
     };
   };
 
@@ -88,15 +91,21 @@ function priorityColors(link) {
     switch (lvl) {
       case "1":
         link.classList.toggle("lvl-1");
+        cont.classList.toggle("cont-lvl-1");
         break;
       case "2":
         link.classList.toggle("lvl-2");
+        cont.classList.toggle("cont-lvl-2");
         break;
       case "3":
         link.classList.toggle("lvl-3");
+        cont.classList.toggle("cont-lvl-3");
         break;
       case "4":
         link.classList.toggle("lvl-4");
+        cont.classList.toggle("cont-lvl-4");
+        break;
+      default:
         break;
     };
   };
