@@ -47,12 +47,10 @@ document.getElementById('formCloseBtn').addEventListener('click', function() {
 
 document.getElementById('addTaskBtn').addEventListener('click', function() {
   addTask();
-  closeForm();
 });
 
 document.getElementById('addListBtn').addEventListener('click', function() {
   addList();
-  closeForm();
 });
 
 document.getElementById('editTaskBtn').addEventListener('click', function() {

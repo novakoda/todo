@@ -3,6 +3,7 @@ import {todoTask} from './todo.js';
 import {clearLists, clearList, listLists, addList} from './listFncs.js';
 import {todoLists} from './index.js';
 import {formatDistance} from 'date-fns';
+import {closeForm} from './formFncs.js';
 
 function listTasks(list, listIndex) {
   let tasksContainer = document.createElement('div');
@@ -65,21 +66,26 @@ function addTask() {
   let priority = document.getElementById('addTaskPriority').value;
   let date = document.getElementById('addTaskDate').value;
   let listIndex = document.getElementById('selectList').value;
-  console.log(date);
 
-  let task = todoTask({
-    "title": title,
-    "description": description,
-    "date": date,
-    "priority": priority
-  });
-  todoLists[listIndex].addTask(task);
-  listLists();
+  if (title == undefined || title == "") {
+    document.getElementById('error').classList.remove('hidden');
+  } else {
+    let task = todoTask({
+      "title": title,
+      "description": description,
+      "date": date,
+      "priority": priority
+    });
+    todoLists[listIndex].addTask(task);
+    listLists();
+    closeForm();
+  };
 };
 
 function addTaskFromList(btn) {
   let listIndex = btn.id.replace(/\D/g,'');
   let title = document.getElementById('addTaskInput' + listIndex).value;
+  if (title == undefined || title == "") {return};
   let task = todoTask({
     "title": title
   });

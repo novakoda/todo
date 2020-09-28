@@ -2,6 +2,7 @@ import {todoContainer, checkBoxes, deleteButtons, listInputs, taskLinks, listLin
 import {listTasks} from './taskFncs.js';
 import {todoLists} from './index.js';
 import {todoList} from './todo.js';
+import {closeForm} from './formFncs.js';
 
 function clearLists() {
   todoContainer.innerHTML = "";
@@ -52,14 +53,18 @@ function fillList(list, i) {
 function addList() {
   let title = document.getElementById('addListName').value;
   let description = document.getElementById('addListDescription').value;
+  if (title == undefined || title == "") {
+    document.getElementById('error').classList.remove('hidden');
+    } else {
+    let list = todoList({
+      "title": title,
+      "tasks": []
+    });
 
-  let list = todoList({
-    "title": title,
-    "tasks": []
-  });
-
-  todoLists.push(list);
-  listLists();
+    todoLists.push(list);
+    listLists();
+    closeForm();
+  };
 };
 
 export {clearLists, clearList, fillList, addList, listLists}

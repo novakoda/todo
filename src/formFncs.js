@@ -5,6 +5,8 @@ const formsArea = document.getElementById('formsArea');
 const newTaskForm = document.getElementById('newTaskForm');
 const newListForm = document.getElementById('newListForm');
 
+const errorMsg = document.getElementById('error');
+
 const addTaskName = document.getElementById('addTaskName');
 const addTaskDescription = document.getElementById('addTaskDescription');
 const addTaskPriority = document.getElementById('addTaskPriority');
@@ -59,6 +61,7 @@ function showListForm(edit) {
 }
 
 function clearTaskForm() {
+  errorMsg.classList.add('hidden');
   addTaskName.value = '';
   addTaskDescription.value = '';
   addTaskPriority.value = '';
@@ -68,6 +71,7 @@ function clearTaskForm() {
 };
 
 function clearListsForm() {
+  errorMsg.classList.add('hidden');
   addListName.value = '';
   addListDescription.value = '';
 };
@@ -89,6 +93,7 @@ function addListsToForm() {
 function editTaskForm(link) {
   let coords = link.id.replace(/\D/g,'');
   changeEditedTask(todoLists[coords[0]].tasks[coords[1]]);
+  errorMsg.classList.add('hidden');
 
   addTaskName.value = editedTask.getTitle();
   addTaskDescription.value = editedTask.getDescription();
@@ -103,7 +108,7 @@ function editTaskForm(link) {
 function editListForm(link) {
   let index = link.id.replace(/\D/g,'');
   changeEditedList(todoLists[index]);
-  console.log(editedList);
+  errorMsg.classList.add('hidden');
 
   addListName.value = editedList.getTitle();
   addListDescription.value = editedList.getDescription();
