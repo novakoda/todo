@@ -90,6 +90,7 @@ function addTaskFromList(btn) {
     "title": title
   });
   todoLists[listIndex].addTask(task);
+  window.localStorage.setItem('lists', JSON.stringify(todoLists));
   listLists();
 };
 

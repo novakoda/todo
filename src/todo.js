@@ -24,6 +24,7 @@ const todoTask = (data) => {
   const isFinished = () => finished;
 
   return {
+    title, description, date, priority, finished, coords,
     getTitle, getDescription, getPriority, getDate, getCoords,
     editTitle, editDescription, editPriority, editDate, editCoords,
     toggleFinished, isFinished
@@ -53,7 +54,7 @@ const todoList = (data) => {
     tasks.splice(index, 1);
   };
   return {
-    title, tasks, getTitle, getTasks, getDescription, getIndex, setIndex, editTitle, editDescription, addTask, removeTask
+    title, description, tasks, getTitle, getTasks, getDescription, getIndex, setIndex, editTitle, editDescription, addTask, removeTask
   }
 };
 

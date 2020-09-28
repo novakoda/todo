@@ -10,21 +10,56 @@ import {
 } from './formFncs.js';
 import './index.css';
 
-let todoTasks = [];
 let todoLists = [];
 let currentList;
 let editedTask;
 let editedList;
 
+function changeLists(newLists) {
+  todoLists = newLists;
+};
+
 function changeEditedTask(task) {
   editedTask = task;
-}
+};
 
 function changeEditedList(list) {
   editedList = list;
+};
+
+
+if (window.localStorage.getItem('lists') != null && window.localStorage.getItem('lists') != undefined && window.localStorage.getItem('lists') != "") {
+  let storedLists = JSON.parse(window.localStorage.getItem('lists'));
+  storedLists.forEach(list => {
+    let tasks = [];
+    list.tasks.forEach(task => {
+      tasks.push(todoTask({
+        'title': task.title,
+        'description': task.description,
+        'priority': task.priority,
+        'date': task.date,
+        'finished': task.finished
+      }));
+    });
+
+    todoLists.push(todoList({
+      'title': list.title,
+      'description': list.description,
+      'tasks': tasks
+    }));
+  });
+
+  console.log(todoLists);
+};
+
+
+if (todoLists == null || todoLists == undefined || todoLists == "") {
+  exampleLists();
 }
 
-exampleLists();
+console.log(JSON.parse(window.localStorage.getItem('lists')));
+
+
 listLists();
 
 //listTasks(currentList);
@@ -71,4 +106,4 @@ document.getElementById('delListBtn').addEventListener('click', function() {
   closeForm();
 });
 
-export {todoTasks, currentList, todoLists, editedTask, editedList, changeEditedTask, changeEditedList}
+export {currentList, todoLists, editedTask, editedList, changeLists, changeEditedTask, changeEditedList}

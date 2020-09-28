@@ -1,5 +1,5 @@
 import {listLists} from './listFncs.js';
-import {todoLists, editedTask, editedList, changeEditedTask, changeEditedList} from './index.js';
+import {todoLists, editedTask, editedList, changeLists, changeEditedTask, changeEditedList} from './index.js';
 
 const formsArea = document.getElementById('formsArea');
 const newTaskForm = document.getElementById('newTaskForm');
@@ -34,6 +34,7 @@ function closeForm() {
   addListBtn.style.display = "none";
   editListBtn.style.display = "none";
   delListBtn.style.display = "none";
+  window.localStorage.setItem('lists', JSON.stringify(todoLists));
 };
 
 function showTaskForm(edit) {
@@ -122,15 +123,23 @@ function editTask(task) {
   if (addTaskName.value == undefined || addTaskName.value == "") {
     errorMsg.classList.remove('hidden');
   } else {
+    console.log(task);
     task.editTitle(addTaskName.value);
+    task.title = addTaskName.value;
     task.editDescription(addTaskDescription.value);
+    task.description = addTaskDescription.value;
     task.editPriority(addTaskPriority.value);
+    task.priority = addTaskPriority.value;
     task.editDate(addTaskDate.value);
+    task.date = addTaskDate.value;
 
     if (selectedList !== todoLists[coords[0]]) {
       todoLists[coords[0]].removeTask(task);
       selectedList.addTask(task);
     };
+    console.log(task);
+    changeLists(todoLists);
+    console.log(todoLists);
     listLists();
     closeForm();
   };
@@ -141,7 +150,10 @@ function editList(list) {
     errorMsg.classList.remove('hidden');
   } else {
     list.editTitle(addListName.value);
+    list.title = addListName.value;
     list.editDescription(addListDescription.value);
+    list.description = addListDescription.value;
+    changeLists(todoLists);
     listLists();
     closeForm();
   };

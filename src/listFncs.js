@@ -17,6 +17,7 @@ function listLists() {
   todoLists.forEach((list, i) => {
     todoContainer.appendChild(fillList(list, i));
   });
+  console.log(todoLists);
   checkBoxes();
   deleteButtons();
   listInputs();
@@ -58,6 +59,7 @@ function addList() {
     } else {
     let list = todoList({
       "title": title,
+      "description": description,
       "tasks": []
     });
 

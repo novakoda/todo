@@ -14,8 +14,15 @@ function checkBoxes() {
       let daList = todoLists[coords[0]];
       let checkTask = daList.tasks[coords[1]];
       checkTask.toggleFinished();
-      checkTask.isFinished() ? daList.tasks.push(daList.tasks.splice(coords[1], 1)[0]) : daList.addTask(daList.tasks.splice(coords[1], 1)[0]);
+      if (checkTask.isFinished()) {
+        checkTask.finished = true;
+        daList.tasks.push(daList.tasks.splice(coords[1], 1)[0]);
+      } else {
+        checkTask.finished = false;
+        daList.addTask(daList.tasks.splice(coords[1], 1)[0]);
+      };
       toggleViews(box);
+      window.localStorage.setItem('lists', JSON.stringify(todoLists));
       let listCont = document.getElementById('listCont-' + coords[0]);
       clearList(listCont);
       let tasksContainer = fillList(daList, coords[0]);
