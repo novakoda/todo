@@ -119,24 +119,33 @@ function editTask(task) {
   let selectedList = todoLists[selectList.value];
   let coords = task.getCoords();
 
-  task.editTitle(addTaskName.value);
-  task.editDescription(addTaskDescription.value);
-  task.editPriority(addTaskPriority.value);
-  task.editDate(addTaskDate.value);
+  if (addTaskName.value == undefined || addTaskName.value == "") {
+    errorMsg.classList.remove('hidden');
+  } else {
+    task.editTitle(addTaskName.value);
+    task.editDescription(addTaskDescription.value);
+    task.editPriority(addTaskPriority.value);
+    task.editDate(addTaskDate.value);
 
-  if (selectedList !== todoLists[coords[0]]) {
-    todoLists[coords[0]].removeTask(task);
-    selectedList.addTask(task);
+    if (selectedList !== todoLists[coords[0]]) {
+      todoLists[coords[0]].removeTask(task);
+      selectedList.addTask(task);
+    };
+    listLists();
+    closeForm();
   };
-
-  listLists();
 };
 
 function editList(list) {
-  list.editTitle(addListName.value);
-  list.editDescription(addListDescription.value);
-  listLists();
-}
+  if (addListName.value == undefined || addListName.value == "") {
+    errorMsg.classList.remove('hidden');
+  } else {
+    list.editTitle(addListName.value);
+    list.editDescription(addListDescription.value);
+    listLists();
+    closeForm();
+  };
+};
 
 function formTaskDelete(task) {
   let coords = task.getCoords();

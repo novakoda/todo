@@ -55,7 +55,6 @@ document.getElementById('addListBtn').addEventListener('click', function() {
 
 document.getElementById('editTaskBtn').addEventListener('click', function() {
   editTask(editedTask);
-  closeForm();
 });
 
 document.getElementById('delTaskBtn').addEventListener('click', function() {
@@ -65,7 +64,6 @@ document.getElementById('delTaskBtn').addEventListener('click', function() {
 
 document.getElementById('editListBtn').addEventListener('click', function() {
   editList(editedList);
-  closeForm();
 });
 
 document.getElementById('delListBtn').addEventListener('click', function() {
