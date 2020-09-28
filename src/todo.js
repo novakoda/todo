@@ -7,7 +7,11 @@ const todoTask = (data) => {
   let coords = [];
 
   const getTitle = () => {return title};
-  const getDescription = () => {return description};
+  const getDescription = () => {
+    if (description != undefined && description != "") {
+      return description
+    } else {return ""};
+  };
   const getPriority = () => {return priority};
   const getDate = () => {return date};
   const getCoords = () => {return coords};
@@ -33,7 +37,11 @@ const todoList = (data) => {
   let index;
 
   const getTitle = () => {return title};
-  const getDescription = () => {return description};
+  const getDescription = () => {
+    if (description != undefined && description != "") {
+      return description
+    } else {return ""};
+  };
   const getTasks = () => {return tasks};
   const getIndex = () => {return index};
   const setIndex = (newIndex) => {index = newIndex};
