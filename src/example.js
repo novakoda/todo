@@ -3,51 +3,45 @@ import {todoLists} from './index.js';
 
 function exampleLists() {
   let list1 = todoList({
-    "title": "my list",
-    "description": "things to do around the house",
+    "title": "Personal",
+    "description": "things I probably should do",
     "tasks": [
       todoTask({
-        "title": "Send e-mails to IT companies",
-        "description": "sadgfdsgfe",
-        "date": "2020-09-19",
-        "priority": "1"
-      }),
-      todoTask({
-        "title": "This is something else that I know that I have to do but I forgot what it is",
-        "description": "IvsfM",
-        "date": "2020-08-19",
+        "title": "Workout",
+        "description": "Pushups and cardio",
+        "date": "2020-10-02",
         "priority": "2"
       }),
       todoTask({
-        "title": "im 3rd",
-        "description": "xcbsdsdody",
-        "date": "2020-09-19",
-        "priority": "3",
+        "title": "Shopping",
+        "description": "Buy t-shirt and jeans",
+        "date": "2020-10-01",
+        "priority": "4"
+      }),
+      todoTask({
+        "title": "This is something else that I know that I have to do but I forgot what it is",
+        "description": "Oh well",
         "finished": "true"
       })
     ]
   });
 
   let list2 = todoList({
-    "title": "yo list",
-    "description": "things to at your house",
+    "title": "Work",
     "tasks": [
       todoTask({
-        "title": "do dis 4 me",
-        "description": "or else",
-        "date": "2020-10-19",
+        "title": "Send e-mails to IT companies",
+        "description": "make sure to attach resume",
+        "date": "2020-09-29",
         "priority": "1"
       }),
       todoTask({
-        "title": "do dis 2",
-        "description": "ILY FAM",
-        "date": "2020-09-29",
-        "priority": "2",
-        "finished": "true"
+        "title": "learn webpack",
+        "priority": "2"
       }),
       todoTask({
-        "title": "make 3 wishes",
-        "description": "you really get 33 but dont tell nobody",
+        "title": "Finish JS project",
+        "description": "todo list app",
         "date": "2020-09-19",
         "priority": "3",
         "finished": "true"
@@ -56,26 +50,47 @@ function exampleLists() {
   });
 
   let list3 = todoList({
-    "title": "da list",
-    "description": "things to do at yo mama house",
+    "title": "Shopping",
+    "description": "things to grab from the store",
     "tasks": [
       todoTask({
-        "title": "aaaaa",
-        "description": "fsdsdfsgf",
-        "date": "2020-09-19",
+        "title": "grape juice",
+        "description": "welch's",
+        "priority": "3"
+      }),
+      todoTask({
+        "title": "water",
         "priority": "1"
       }),
       todoTask({
-        "title": "dsfdgsdfg2",
-        "description": "ILsdfgsdfgdfM",
-        "date": "2020-09-19",
+        "title": "king crabs",
+        "description": "2 lbs",
         "priority": "2"
       }),
       todoTask({
-        "title": "masdfgsdfggdes",
-        "description": "yosdgdfsgsdfggsfgfsgdfgdsgdfgsdfy",
-        "date": "2020-09-19",
-        "priority": "3",
+        "title": "steak",
+        "description": "ribeye",
+        "priority": "4"
+      }),
+      todoTask({
+        "title": "ground beef",
+        "description": "1 lb",
+        "priority": "1"
+      }),
+      todoTask({
+        "title": "oatmeal",
+        "description": "cinn & brown sugar",
+        "priority": "4"
+      }),
+      todoTask({
+        "title": "bacon",
+        "description": "maple smoked",
+        "priority": "1",
+        "finished": "true"
+      }),
+      todoTask({
+        "title": "toilet paper",
+        "description": "charmin ultra soft",
         "finished": "true"
       })
     ]

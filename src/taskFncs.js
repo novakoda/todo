@@ -11,6 +11,7 @@ function listTasks(list, listIndex) {
   list.getTasks().forEach((item, i) => {
     const itemDiv = document.createElement('div');
     let itemDate;
+    let itemDesc;
 
     if (item.getDate() != undefined && item.getDate() != "") {
        itemDate = formatDistance(
@@ -19,6 +20,11 @@ function listTasks(list, listIndex) {
         {addSuffix: true}
       );
     } else {itemDate = ""};
+
+    if (item.getDescription() != undefined && item.getDescription() != "") {
+      itemDesc = item.getDescription();
+    } else {itemDesc = ""};
+
     itemDiv.className = "task-item";
     itemDiv.id = `list${listIndex}-task${i}-cont`;
     item.editCoords([listIndex, i]);
@@ -41,7 +47,7 @@ function listTasks(list, listIndex) {
             <input class="form-check-input task-checkbox" type="checkbox" value="" id="list${listIndex}-task${i}">
             <a class="task-name" id="list${listIndex}-task${i}-name" href="#">${item.getTitle()}</a>
           </label>
-          <p class="task-desc" id="list${listIndex}-task${i}-desc">${item.getDescription()}</p>
+          <p class="task-desc" id="list${listIndex}-task${i}-desc">${itemDesc}</p>
         </div>
         <div class="task-date" id="list${listIndex}-task${i}-date">${itemDate}</div>
         <button type="button" id="list${listIndex}-task${i}-del" class="task-delete-btn hidden"><i class="far fa-times-circle task-delete-icon"></i></button>
