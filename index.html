@@ -46,59 +46,60 @@
           </div>
         </div>
       </footer>
+    </div>
 
-
-      <div id="formsArea">
-        <div id="newForm">
-          <button type="button" id="formCloseBtn" name="button"><i class="fas fa-times"></i></button>
-          <form id="newTaskForm">
-            <div class="form-group">
-              <label for="addTaskName">Task</label>
-              <input type="text" class="form-control" id="addTaskName" value="">
-            </div>
-            <div class="form-group">
-              <label for="addTaskDescription">Description</label>
-              <input type="text" class="form-control" id="addTaskDescription" value="">
-            </div>
-            <div class="form-group">
-              <label for="addTaskDate">Due Date</label>
-              <input type="date" class="form-control" id="addTaskDate" value="">
-            </div>
-            <div class="form-group">
-              <label for="addTaskPriority">Priority</label>
-              <select class="custom-select" id="addTaskPriority">
-                <option value="0">None</option>
-                <option value="1">Urgent</option>
-                <option value="2">High</option>
-                <option value="3">Medium</option>
-                <option value="4">Low</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="">Add to List</label>
-              <select class="custom-select" id="selectList">
-              </select>
-            </div>
-            <button type="button" class="btn btn-primary" id="addTaskBtn" name="button">Add Task</button>
-            <button type="button" class="btn btn-primary" id="editTaskBtn" name="button">Edit Task</button>
-            <button type="button" class="btn btn-danger" id="delTaskBtn" name="button">Delete Task</button>
-          </form>
-
-          <form id="newListForm">
-            <div class="form-group">
-              <label for="addListName">List Name</label>
-              <input type="text" class="form-control" id="addListName" value="">
-            </div>
-            <div class="form-group">
-              <label for="addListDescription">Description</label>
-              <input type="text" class="form-control" id="addListDescription" value="">
-            </div>
-            <button type="button" class="btn btn-primary" id="addListBtn" name="button">Add List</button>
-            <button type="button" class="btn btn-primary" id="editListBtn" name="button">Edit List</button>
-            <button type="button" class="btn btn-danger" id="delListBtn" name="button">Delete List</button>
-          </form>
+    <div id="formsArea">
+      <div id="newForm">
+        <button type="button" id="formCloseBtn" name="button"><i class="fas fa-times"></i></button>
+        <div class="alert alert-danger hidden" id="error" role="alert">
+          Title cannot be empty!
         </div>
+        <form id="newTaskForm">
+          <div class="form-group">
+            <label for="addTaskName">Task Title</label>
+            <input type="text" class="form-control" id="addTaskName" value="">
+          </div>
+          <div class="form-group">
+            <label for="addTaskDescription">Description</label>
+            <input type="text" class="form-control" id="addTaskDescription" value="">
+          </div>
+          <div class="form-group">
+            <label for="addTaskDate">Due Date</label>
+            <input type="date" class="form-control" id="addTaskDate" value="">
+          </div>
+          <div class="form-group">
+            <label for="addTaskPriority">Priority</label>
+            <select class="custom-select" id="addTaskPriority">
+              <option value="0">None</option>
+              <option value="1">Urgent</option>
+              <option value="2">High</option>
+              <option value="3">Medium</option>
+              <option value="4">Low</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="">Add to List</label>
+            <select class="custom-select" id="selectList">
+            </select>
+          </div>
+          <button type="button" class="btn btn-primary" id="addTaskBtn" name="button">Add Task</button>
+          <button type="button" class="btn btn-primary" id="editTaskBtn" name="button">Edit Task</button>
+          <button type="button" class="btn btn-danger" id="delTaskBtn" name="button">Delete Task</button>
+        </form>
 
+        <form id="newListForm">
+          <div class="form-group">
+            <label for="addListName">List Title</label>
+            <input type="text" class="form-control" id="addListName" value="">
+          </div>
+          <div class="form-group">
+            <label for="addListDescription">Description</label>
+            <input type="text" class="form-control" id="addListDescription" value="">
+          </div>
+          <button type="button" class="btn btn-primary" id="addListBtn" name="button">Add List</button>
+          <button type="button" class="btn btn-primary" id="editListBtn" name="button">Edit List</button>
+          <button type="button" class="btn btn-danger" id="delListBtn" name="button">Delete List</button>
+        </form>
       </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
